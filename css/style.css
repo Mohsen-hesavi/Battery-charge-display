@@ -1,0 +1,195 @@
+/*    _____                    _     
+ __ _|_   _|                  | |    
+/  __ \| | __ _ _ __ ___ _   _| |__  
+/ / _` | |/ _` | '__/ __| | | | '_ \ 
+| | (_| | | (_| | | | (__| |_| | |_) |
+\ \__,_\_/\__,_|_|  \___|\__, |_.__/ 
+\____/                   __/ |      
+                       |___/        */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@600&family=Rubik:wght@400;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+font-family: 'Rubik', sans-serif;
+background-color: rgb(14, 14, 14);
+color: #eaeaea;
+}
+
+.battery{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0 1.5rem;
+}
+
+.battery__card{
+    position: relative;
+    width: 100%;
+    height: 240px;
+    background-color: rgb(0, 0, 0);
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.battrey__text{
+    margin-bottom: .5rem;
+}
+
+.battrey__percentage{
+    font-size: 40px;
+}
+
+.battrey__status{
+    position: absolute;
+    bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    font-size: small;
+}
+
+.battrey__status i{
+    font-size: 1.2rem;
+}
+
+.battrey__pill{
+    position: relative;
+    width: 75px;
+    height: 180px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: inset 20px 0 48px hsl(0, 0%, 16%),
+    inset -4px 12px 48px hsl(0, 0%, 56%);
+    border-radius: 3rem;
+    justify-self: flex-end;
+}
+
+.battrey__level{
+    position: absolute;
+    inset: 2px;
+    border-radius: 3rem;
+    overflow: hidden;
+}
+
+.battrey__liquid{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background-image:linear-gradient(90deg, hsl(0, 100%, 50%) 15%,
+    hsl(11, 100%, 67%)100%);
+    box-shadow: inset -10px 0 12px hsla(0, 0%, 0%, .1),
+    inset 12px 0 12px hsla(0, 0%, 0%, .15);
+    transition: .3s;
+}
+
+.battrey__liquid::after{
+    content: '';
+    position: absolute;
+    height: 8px;
+    background-image:linear-gradient(90deg, hsl(0, 100%, 50%) 15%,
+    hsl(11, 100%, 67%)100%);
+    box-shadow: inset 0 -3px 6px hsla(0, 0%, 0%, .2);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -4px;
+    border-radius: 50%;
+}
+
+.green-color{
+background-image:linear-gradient(90deg, hsl(92, 89%, 46%) 15%,
+    hsl(92, 90%, 68%)100%);
+}
+
+.animated-green{
+    background-image:linear-gradient(90deg, hsl(92, 89%, 46%) 15%,
+    hsl(92, 90%, 68%)100%);
+    animation: animated-chargin-battrey 1.2s infinite alternate;
+}
+
+.animated-red{
+    background-image:linear-gradient(90deg, hsl(0, 100%, 50%) 15%,
+    hsl(11, 100%, 67%)100%);
+    animation: animated-low-battrey 1.2s infinite alternate;
+}
+
+.animated-green,
+.animated-red,
+.green-color{
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@keyframes animated-chargin-battrey{
+    0%{
+        text-shadow: none;
+    }
+
+    100%{
+        text-shadow: 0 0 6px hsl(92, 90%, 68%);
+    }
+}
+
+@keyframes animated-low-battrey{
+    0%{
+        text-shadow: none;
+    }
+
+    100%{
+        text-shadow: 0 0 8px hsl(7, 89%, 46%);
+    }
+}
+
+.gradient-color-red,
+.gradient-color-red::after{
+    background-image:linear-gradient(90deg, hsl(0, 100%, 50%) 15%,
+    hsl(11, 100%, 67%)100%);
+}
+
+.gradient-color-orange,
+.gradient-color-orange::after{
+    background-image:linear-gradient(90deg, hsl(22, 89%, 46%) 15%,
+    hsl(54, 90%, 45%)100%);
+}
+
+.gradient-color-yellow,
+.gradient-color-yellow::after{
+    background-image:linear-gradient(90deg, hsl(54, 89%, 46%) 15%,
+    hsl(92, 90%, 45%)100%);
+}
+
+.gradient-color-green,
+.gradient-color-green::after{
+    background-image:linear-gradient(90deg, hsl(92, 89%, 46%) 15%,
+    hsl(92, 90%, 68%)100%);
+}
+
+@media screen and (max-width: 320px) {
+    .battery__card{
+        zoom:.9;
+        
+    }
+}
+
+@media screen and (min-width: 430px) {
+    .battery__card{
+        width: 312px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .battery__card{
+        zoom: 1.5;
+    }
+}
