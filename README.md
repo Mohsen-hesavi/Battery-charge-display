@@ -17,6 +17,7 @@ Fully reactive
 
 
 View online: https://mohsenhesavi.ir/Project/Project2
+
 سورس کد نمایش شارژ باطری
 
 نمایش میزان شارژ باطری قابلیت ها:
